@@ -27,7 +27,7 @@ public class GironParSimpleDummy {
      * el directorio actual
      * @param ipSuperPar
      */
-    public void conectar(String ipSuperPar) throws IOException{
+    public void conectar(String ipSuperPar){
         DataOutputStream salida= null;
         File f1 = new File(".");
         String l_files[]= f1.list();
@@ -37,13 +37,15 @@ public class GironParSimpleDummy {
         } catch (IOException e) { 
             System.err.println("Error de E/S para la conexi—n con: " + ipSuperPar);
         }
-        
+        try{
             for (int i=0;i<l_files.length;i++){
                 salida.writeBytes(l_files[i]);
                 salida.writeByte('\n');
                 System.out.println(l_files[i]);
             }
-        
+        }catch (IOException e) { 
+            System.err.println("Error de E/S para la conexi—n con: " + ipSuperPar);
+        }
     }
     
     
