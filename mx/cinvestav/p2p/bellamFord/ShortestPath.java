@@ -13,7 +13,16 @@ public class ShortestPath {
 	 * @param conexiones tabla con las ips de nodos vecions y su peso
 	 */
 	public ShortestPath(Hashtable<String, Integer> conexiones) {
-		// TODO Auto-generated constructor stub
+		GironVectores giron;
+		RodrigoServer rodrigo;
+		ClienteBellman clienteBell;
+		
+		giron = new GironVectores(conexiones);
+		clienteBell = new ClienteBellman(giron);
+		rodrigo = new RodrigoServer(giron, clienteBell);
+		
+		Thread t = new Thread(rodrigo);
+		t.start();
 	}
 	
 	/**
