@@ -54,6 +54,8 @@ public class RodrigoServer {
                    InputStream is = socket.getInputStream(); 
                    ois = new ObjectInputStream(is);
                    vectors= (GironVectores) ois.readObject(); 
+                   String ip=socket.getLocalSocketAddress().toString();
+                   vectors.setIp(ip);
                 }catch(UnknownHostException e){
                      e.printStackTrace();
                 }catch(IOException ioe){
