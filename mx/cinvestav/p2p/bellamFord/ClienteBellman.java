@@ -43,7 +43,7 @@ public class ClienteBellman {
 				OutputStream output = s.getOutputStream();
 				ObjectOutputStream objOut = new ObjectOutputStream(output);
 				objOut.writeObject(giron);
-				output.close();
+				objOut.close();
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
