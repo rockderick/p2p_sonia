@@ -42,7 +42,7 @@ public class ClienteBellman {
 				Socket s = new Socket(ip, puerto);
 				OutputStream output = s.getOutputStream();
 				ObjectOutputStream objOut = new ObjectOutputStream(output);
-				giron.writeObject(objOut);
+				objOut.writeObject(giron);
 				output.close();
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
